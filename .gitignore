@@ -1,0 +1,18 @@
+# Environments
+.env
+venv/
+
+# Python
+__pycache__/
+
+# Logs
+app.log
+
+# Database
+chroma_db/
+
+# Google Cloud SDK
+google-cloud-sdk/
+
+# Terraform
+terraform/gcp-credentials.json
