@@ -1,0 +1,56 @@
+# Database Configuration
+postgresql:
+  host: "34.134.191.16"
+  port: 5432
+  database: "postgres"
+  username: "postgres"
+  password: "iS@bi2025"
+  ssl_mode: "require"
+  pool_size: 10
+  max_overflow: 20
+
+# GCP Vector Search Configuration (replacing ChromaDB)
+vectordb:
+  type: "gcp_vector_search"
+  project_id: "${GOOGLE_CLOUD_PROJECT}"
+  location: "us-central1"
+  
+  # Indexes from your GCP console
+  indexes:
+    ai_product_index:
+      id: "3522784677859426304"
+      name: "ai_product_index"
+      status: "ready"
+    ai_prodcut_index:
+      id: "5510560963390078976"
+      name: "ai_prodcut_index"
+      status: "ready"
+  
+  # Default index to use
+  default_index: "ai_product_index"
+  
+  # Collection mappings
+  collections:
+    isabi_products: "ai_product_index"
+    product_knowledge: "ai_product_index"
+    user_queries: "ai_prodcut_index"
+
+whatsapp:
+  api_version: "v18.0"
+  phone_number_id: "757884290740650"
+  verify_token: "user-product"
+  webhook_url: "https://your-ngrok-url.ngrok-free.app/webhook"
+
+orange_payment:
+  base_url: "https://api.orange.com/orange-money-webpay/cm/v1"
+  merchant_id: "your_merchant_id"
+  merchant_key: "your_merchant_key"
+  currency: "XAF"
+  timeout: 30
+
+ai_tutor:
+  model: "gemini-2.0-flash-exp"
+  max_tokens: 2048
+  temperature: 0.7
+  top_p: 0.9
+  timeout: 30

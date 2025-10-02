@@ -1,0 +1,28 @@
+# Application Configuration
+app:
+  name: "Isabi WhatsApp Sales Bot"
+  version: "2.0.0"
+  debug: true
+  host: "0.0.0.0"
+  port: 8000
+  reload: true
+
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/isabi_bot.log"
+  max_size: "10MB"
+  backup_count: 5
+
+security:
+  secret_key: "your-secret-key-here"
+  access_token_expire_minutes: 30
+  algorithm: "HS256"
+
+rate_limiting:
+  requests_per_minute: 60
+  burst_size: 10
+
+cache:
+  redis_url: "redis://localhost:6379"
+  default_ttl: 3600
