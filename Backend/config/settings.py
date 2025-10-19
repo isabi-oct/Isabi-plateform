@@ -15,14 +15,24 @@ class Settings(BaseSettings):
     # Gemini API (replacing OpenAI)
     gemini_api_key: str = os.getenv("GEMINI_API_KEY", "")
     
-    # Orange Money Payment
-    orange_money_merchant_id: str = os.getenv("ORANGE_MONEY_MERCHANT_ID", "")
-    orange_money_merchant_key: str = os.getenv("ORANGE_MONEY_MERCHANT_KEY", "")
-    orange_money_base_url: str = os.getenv("ORANGE_MONEY_BASE_URL", "https://api.orange.com/orange-money-webpay/cm/v1")
-    orange_money_currency: str = "XAF"  # Central African CFA franc
+    # Flutterwave Payment Integration
+    flutterwave_public_key: str = os.getenv("FLUTTERWAVE_PUBLIC_KEY", "")
+    flutterwave_secret_key: str = os.getenv("FLUTTERWAVE_SECRET_KEY", "")
+    flutterwave_encryption_key: str = os.getenv("FLUTTERWAVE_ENCRYPTION_KEY", "")
+    flutterwave_base_url: str = os.getenv("FLUTTERWAVE_BASE_URL", "https://api.flutterwave.com")
+    flutterwave_currency: str = os.getenv("FLUTTERWAVE_CURRENCY", "USD")
+    flutterwave_timeout: int = int(os.getenv("FLUTTERWAVE_TIMEOUT", "30"))
+    
+    # App Base URL for callbacks
+    app_base_url: str = os.getenv("APP_BASE_URL", "https://your-domain.com")
     
     # Redis
     redis_url: str = os.getenv("REDIS_URL", "redis://localhost:6379")
+    
+    # GCP Configuration
+    gcp_project_id: str = os.getenv("GOOGLE_CLOUD_PROJECT", "")
+    gcp_location: str = os.getenv("GCP_LOCATION", "us-central1")
+    gcp_credentials_path: str = os.getenv("GOOGLE_APPLICATION_CREDENTIALS", "")
     
     # App Settings
     app_name: str = "Isabi WhatsApp Sales Bot"

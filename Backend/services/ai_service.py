@@ -1,6 +1,6 @@
 import google.generativeai as genai
-from app.config.settings import settings
-from app.models.vector_db.chroma_client import chroma_client
+from Backend.config.settings import settings
+from Database.VectorDB.gcp_vector_client import gcp_vector_client
 from typing import List, Dict, Any
 import json
 
@@ -156,10 +156,10 @@ class AIService:
             }
     
     def search_product_knowledge(self, product_id: int, query: str) -> List[str]:
-        """Search the product's knowledge base using vector similarity"""
+        """Search the product's knowledge base using GCP Vector Search"""
         try:
             collection_name = f"product_{product_id}_knowledge"
-            results = chroma_client.query_collection(collection_name, query, n_results=3)
+            results = gcp_vector_client.query_collection(collection_name, query, n_results=3)
             
             if results and "documents" in results:
                 return results["documents"][0] if results["documents"] else []
@@ -169,15 +169,15 @@ class AIService:
             return []
     
     def add_product_knowledge(self, product_id: int, documents: List[str], metadatas: List[Dict] = None) -> bool:
-        """Add knowledge documents to a product's vector database"""
+        """Add knowledge documents to a product's GCP Vector Search database"""
         try:
             collection_name = f"product_{product_id}_knowledge"
             
             # Create collection if it doesn't exist
-            chroma_client.create_collection(collection_name)
+            gcp_vector_client.create_collection(collection_name)
             
             # Add documents
-            ids = chroma_client.add_documents(collection_name, documents, metadatas)
+            ids = gcp_vector_client.add_documents(collection_name, documents, metadatas)
             return len(ids) > 0
         except Exception as e:
             print(f"Error adding product knowledge: {e}")

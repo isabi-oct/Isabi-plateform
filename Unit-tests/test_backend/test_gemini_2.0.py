@@ -5,7 +5,7 @@ Test Gemini 2.0 Flash Experimental Integration
 
 import os
 from dotenv import load_dotenv
-from app.services.ai_service import ai_service
+from Backend.services.ai_service import ai_service
 
 load_dotenv()
 

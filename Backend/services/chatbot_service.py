@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
-from app.models.database.models import User, Product, Order, ChatSession, OrderStatus, ProductType
-from app.services.whatsapp_service import whatsapp_service
-from app.services.payment_service import payment_service
-from app.services.ai_service import ai_service
+from Backend.models.database.models import User, Product, Order, ChatSession, OrderStatus, ProductType
+from Backend.services.whatsapp_service import whatsapp_service
+from Backend.services.payment_service import payment_service
+from Backend.services.ai_service import ai_service
 from datetime import datetime, timedelta
 from typing import Dict, Any, Optional
 import json
@@ -208,7 +208,10 @@ class ChatbotService:
         payment_result = payment_service.create_payment_link(
             amount=product.price,
             product_name=product.name,
-            order_id=order.id
+            order_id=order.id,
+            customer_email=user.email or f"{user.phone_number}@isabi.local",
+            customer_name=user.name or user.phone_number,
+            customer_phone=user.phone_number
         )
         
         if payment_result["success"]:

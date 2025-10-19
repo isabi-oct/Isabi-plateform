@@ -63,8 +63,8 @@ class Order(Base):
     status = Column(String(20), default=OrderStatus.PENDING)
     payment_link = Column(String(500))
     payment_link_expires_at = Column(DateTime)
-    orange_payment_id = Column(String(200))
-    orange_transaction_id = Column(String(200))
+    flutterwave_payment_id = Column(String(200))
+    flutterwave_transaction_id = Column(String(200))
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
     

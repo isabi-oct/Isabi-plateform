@@ -1,98 +1,102 @@
-# 🤖 Isabi WhatsApp Sales Bot
+# Isabi Agentic AI WhatsApp Sales Bot
 
-A comprehensive AI-powered WhatsApp sales bot built with FastAPI, PostgreSQL, and Gemini AI. This project provides a clean, scalable architecture for building conversational commerce solutions.
+A sophisticated **Agentic AI-driven** WhatsApp sales bot that provides autonomous reasoning, intelligent product recommendations, automated sales processes, and seamless payment integration using **LangChain + Vertex AI (Gemini 1.5)**.
 
-## 🏗️ Project Architecture
+## 🏗️ Architecture
+
+This project uses a **true Agentic AI architecture** with autonomous reasoning capabilities:
+
+- **Core Agent**: Main orchestrator with LangChain + Vertex AI integration
+- **Database Tools**: Autonomous database access and ORM operations
+- **Payment Tools**: Flutterwave payment processing and verification
+- **Vector Search Tools**: Semantic search for AI-related Q&A
+- **Product Tools**: AI-trainable product management and tutoring
+
+### Key Features
+- **Autonomous Reasoning**: AI can reason about customer needs and take actions
+- **Database Access**: Direct ORM calls for user, product, and order management
+- **Tool Execution**: External API calls for payments, vector search, and tutoring
+- **AI Tutoring**: Personalized learning for AI-trainable products
+- **Vector Search**: Semantic product knowledge retrieval
+
+## 📁 Project Structure
 
 ```
 Isabi-plateform/
-├── 📁 Config/                          # Configuration Management
-│   ├── database_config.yaml            # Database configurations
-│   ├── app_config.yaml                 # Application settings
-│   ├── logging_config.yaml             # Logging configuration
-│   └── .env.template                   # Environment variables template
-│
-├── 📁 Backend/                         # Core Application Logic
-│   ├── core/                           # Main application files
-│   │   ├── main.py                     # Primary bot application
-│   │   ├── main_enhanced_gemini.py     # Enhanced Gemini integration
-│   │   ├── ai/                         # AI-related modules
-│   │   ├── whatsapp/                   # WhatsApp integration
-│   │   ├── payment/                    # Payment processing
-│   │   └── database/                   # Database operations
-│   ├── services/                       # Business logic services
-│   ├── models/                         # Data models
-│   ├── utils/                          # Utility functions
-│   └── middleware/                     # Custom middleware
-│
-├── 📁 Database/                        # Database Management
-│   ├── PostgreSQL/                     # PostgreSQL database
-│   │   ├── simple_data_viewer.py       # Data viewing tools
-│   │   └── view_all_data.py            # Comprehensive data viewer
-│   ├── VectorDB/                       # Vector database (ChromaDB)
-│   ├── WhatsApp/                       # WhatsApp data storage
-│   ├── OrangePayment/                  # Payment transaction storage
-│   └── AITutor/                        # AI tutor data storage
-│
-├── 📁 API/                             # API Endpoints
-│   ├── whatsapp/                       # WhatsApp webhook & messaging
-│   ├── payment/                        # Payment processing APIs
-│   ├── products/                       # Product catalog APIs
-│   ├── admin/                          # Admin management APIs
-│   └── health/                         # Health check APIs
-│
-├── 📁 Unit-tests/                      # Testing Suite
-│   ├── test_backend/                   # Backend tests
-│   ├── test_api/                       # API endpoint tests
-│   ├── test_database/                  # Database tests
-│   ├── test_integration/               # Integration tests
-│   ├── conftest.py                     # Test configuration
-│   └── requirements.txt                # Test dependencies
-│
-├── 📄 requirements.txt                 # Main dependencies
-├── 📄 .gitignore                       # Git ignore rules
-├── 📄 LICENSE                          # Project license
-└── 📄 README.md                        # This file
+├── src/                   # New Agentic AI system
+│   ├── agents/
+│   │   └── core_agent.py  # Main agentic AI orchestrator
+│   └── tools/             # Autonomous tools
+│       ├── db_tools.py    # Database operations
+│       ├── payment_tools.py # Payment processing
+│       ├── vector_search_tools.py # Vector search
+│       └── product_tools.py # Product management
+├── Backend/               # Legacy backend (maintained)
+│   ├── core/agents/       # Original agent system
+│   ├── models/database/   # Database models
+│   └── services/          # Business services
+├── api/                   # API endpoints
+│   ├── whatsapp/
+│   │   ├── webhook.py     # Original webhook
+│   │   └── agentic_webhook.py # New agentic webhook
+│   ├── payment/
+│   │   └── flutterwave.py
+│   ├── products/
+│   │   └── catalog.py
+│   └── main.py           # Main API router
+├── Database/              # Database related
+│   ├── PostgreSQL/
+│   └── VectorDB/
+├── config/                # Configuration files
+│   ├── settings.py
+│   └── gcp_config.py
+├── app.py                 # Main application entry point
+├── requirements.txt       # Python dependencies
+├── test_agentic_system.py # Test script
+├── AGENTIC_AI_README.md   # Detailed agentic AI docs
+└── README.md             # This file
 ```
 
 ## 🚀 Features
 
-### 🤖 AI-Powered Conversations
-- **Gemini 2.0 Flash Experimental** integration
-- Context-aware conversations
-- Product recommendations
-- Natural language processing
+### Agentic AI System
+- **Multi-Agent Architecture**: Specialized agents for different conversation aspects
+- **Intelligent Orchestration**: Smart routing between agents based on conversation context
+- **Context Awareness**: Maintains conversation state and user preferences
+- **Memory Management**: Agents remember previous interactions
 
-### 💬 WhatsApp Integration
-- Real-time message handling
-- Webhook verification
-- Message delivery tracking
-- Conversation state management
+### WhatsApp Integration
+- **Meta Cloud API**: Full WhatsApp Business API integration
+- **Interactive Messages**: Support for buttons, lists, and rich media
+- **Webhook Handling**: Real-time message processing
+- **Message Templates**: Predefined message templates for common scenarios
 
-### 💳 Payment Processing
-- Orange Money integration
-- Transaction tracking
-- Payment verification
-- Refund management
+### Payment Processing
+- **Flutterwave Integration**: Complete payment processing
+- **Multiple Payment Methods**: Card, bank transfer, mobile money, PayPal
+- **Order Management**: Full order lifecycle management
+- **Refund Processing**: Automated refund handling
 
-### 🗄️ Database Management
-- **PostgreSQL** for structured data
-- **ChromaDB** for vector embeddings
-- Chat history storage
-- User session management
+### Product Management
+- **Dynamic Catalog**: Real-time product information
+- **AI Recommendations**: Intelligent product suggestions
+- **Category Browsing**: Organized product categories
+- **Search Functionality**: Advanced product search
 
-### 🔧 Configuration Management
-- YAML-based configuration
-- Environment variable support
-- Centralized settings
-- Logging configuration
+### Database Integration
+- **PostgreSQL**: Primary database for structured data
+- **GCP Vector Search**: Vector database for AI embeddings
+- **ORM Integration**: SQLAlchemy for database operations
+- **Migration Support**: Database schema management
 
 ## 🛠️ Installation
 
 ### Prerequisites
 - Python 3.10+
-- PostgreSQL 13+
-- Redis (optional, for caching)
+- PostgreSQL database
+- Google Cloud Platform account (for Vector Search)
+- WhatsApp Business API access
+- Flutterwave account
 
 ### Setup
 
@@ -104,8 +108,8 @@ Isabi-plateform/
 
 2. **Create virtual environment**
    ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   python -m venv .venv
+   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
    ```
 
 3. **Install dependencies**
@@ -113,152 +117,188 @@ Isabi-plateform/
    pip install -r requirements.txt
    ```
 
-4. **Configure environment**
-   ```bash
-   cp Config/.env.template .env
-   # Edit .env with your actual values
+4. **Environment Configuration**
+   Create a `.env` file in the root directory:
+   ```env
+   # Database
+   DATABASE_URL=postgresql://username:password@host:port/database
+   
+   # WhatsApp
+   WHATSAPP_TOKEN=your_whatsapp_token
+   WHATSAPP_PHONE_NUMBER_ID=your_phone_number_id
+   WHATSAPP_VERIFY_TOKEN=your_verify_token
+   
+   # AI
+   GEMINI_API_KEY=your_gemini_api_key
+   
+   # Payment
+   FLUTTERWAVE_PUBLIC_KEY=your_public_key
+   FLUTTERWAVE_SECRET_KEY=your_secret_key
+   FLUTTERWAVE_ENCRYPTION_KEY=your_encryption_key
+   
+   # GCP
+   GOOGLE_CLOUD_PROJECT=your_project_id
    ```
 
-5. **Run the application**
+5. **Database Setup**
    ```bash
-   python Backend/core/main.py
+   # Run database migrations
+   alembic upgrade head
    ```
 
-## ⚙️ Configuration
+6. **Start the application**
+   ```bash
+   python app.py
+   ```
 
-### Database Configuration
-Edit `Config/database_config.yaml`:
-```yaml
-postgresql:
-  host: "your-postgres-host"
-  port: 5432
-  database: "your-database"
-  username: "your-username"
-  password: "your-password"
+## 🔧 Configuration
+
+### Agent Configuration
+Agents can be configured through the `config/` directory:
+- `app_config.yaml`: Application settings
+- `database_config.yaml`: Database and vector search configuration
+- `logging_config.yaml`: Logging configuration
+
+### Agent Behavior
+Each agent has configurable behavior:
+- **Conversation Agent**: Greeting patterns, response templates
+- **Product Agent**: Search algorithms, recommendation logic
+- **Sales Agent**: Sales stages, objection handling
+- **Payment Agent**: Payment methods, order processing
+
+## 📊 API Endpoints
+
+### WhatsApp Webhook
+- `GET /api/whatsapp/webhook` - Webhook verification
+- `POST /api/whatsapp/webhook` - Message processing
+- `POST /api/whatsapp/test-agentic` - Test agentic conversation
+
+### Products
+- `GET /api/products/products` - Get all products
+- `GET /api/products/products/{id}` - Get specific product
+- `GET /api/products/search` - Search products
+- `GET /api/products/categories` - Get categories
+
+### Payment
+- `POST /api/payment/initialize` - Initialize payment
+- `POST /api/payment/verify` - Verify transaction
+- `POST /api/payment/webhook` - Payment webhook
+
+### Health Check
+- `GET /api/health` - System health check
+- `GET /api/health/agents` - Agent status
+- `GET /api/health/whatsapp` - WhatsApp service status
+
+## 🤖 Agentic AI Usage
+
+### Basic Usage
+```python
+from agents.orchestrator import agent_orchestrator
+
+# Process a message through the agentic system
+response = await agent_orchestrator.process_message(
+    user_id="user123",
+    message="I want to learn AI",
+    context={"conversation_type": "whatsapp"}
+)
+
+print(response['response'])
+print(response['suggestions'])
 ```
 
-### WhatsApp Configuration
-Update your `.env` file:
-```env
-WHATSAPP_TOKEN=your_whatsapp_token
-WHATSAPP_VERIFY_TOKEN=your_verify_token
-WHATSAPP_PHONE_NUMBER_ID=your_phone_number_id
-```
+### Agent Status
+```python
+# Get system status
+status = agent_orchestrator.get_system_status()
 
-### Gemini AI Configuration
-```env
-GEMINI_API_KEY=your_gemini_api_key
+# Get specific agent status
+agent_status = agent_orchestrator.get_agent_status("product")
+
+# Get conversation status
+conversation = agent_orchestrator.get_conversation_status("user123")
 ```
 
 ## 🧪 Testing
 
 ### Run Tests
 ```bash
-# Install test dependencies
-pip install -r Unit-tests/requirements.txt
-
 # Run all tests
-pytest Unit-tests/
+pytest
 
 # Run specific test categories
-pytest Unit-tests/test_backend/
-pytest Unit-tests/test_api/
-pytest Unit-tests/test_database/
+pytest test_api/
+pytest test_backend/
+pytest test_integration/
 ```
 
-### Test Coverage
+### Test Agentic System
 ```bash
-pytest --cov=Backend --cov=API --cov=Database Unit-tests/
+# Test agentic conversation
+curl -X POST "http://localhost:8000/api/whatsapp/test-agentic" \
+  -H "Content-Type: application/json" \
+  -d '{"message": "I want to buy a course", "phone_number": "1234567890"}'
 ```
 
-## 📊 API Documentation
+## 📈 Monitoring
 
-### WhatsApp Webhook
-- **POST** `/webhook` - WhatsApp message webhook
-- **GET** `/webhook` - Webhook verification
+### Health Checks
+- System health: `GET /api/health`
+- Agent status: `GET /api/health/agents`
+- Component status: `GET /api/health/detailed`
 
-### Product APIs
-- **GET** `/api/products/` - List all products
-- **GET** `/api/products/{id}` - Get product details
-- **POST** `/api/products/search` - Search products
+### Agent Statistics
+- Conversation stats: Available through agent status endpoints
+- Sales metrics: Tracked by Sales Agent
+- Product analytics: Managed by Product Agent
+- Payment statistics: Monitored by Payment Agent
 
-### Payment APIs
-- **POST** `/api/payment/orange-money` - Process Orange Money payment
-- **GET** `/api/payment/transactions` - Get transaction history
+## 🔒 Security
 
-## 🔧 Development
-
-### Code Structure
-- **Config/**: All configuration files
-- **Backend/**: Core application logic
-- **Database/**: Database-related modules
-- **API/**: REST API endpoints
-- **Unit-tests/**: Test suite
-
-### Best Practices
-- Use type hints for all functions
-- Write comprehensive tests
-- Follow PEP 8 style guide
-- Document all public APIs
-- Use logging for debugging
-
-### Adding New Features
-1. Create modules in appropriate directories
-2. Add configuration in `Config/`
-3. Write tests in `Unit-tests/`
-4. Update API endpoints in `API/`
-5. Update documentation
+- **Environment Variables**: All sensitive data stored in environment variables
+- **Webhook Verification**: WhatsApp webhook signature verification
+- **Payment Security**: Flutterwave secure payment processing
+- **Database Security**: Encrypted connections and prepared statements
 
 ## 🚀 Deployment
+
+### Production Deployment
+1. Set up production database
+2. Configure production environment variables
+3. Set up reverse proxy (nginx)
+4. Use process manager (systemd, PM2)
+5. Configure SSL certificates
+6. Set up monitoring and logging
 
 ### Docker Deployment
 ```bash
 # Build Docker image
-docker build -t isabi-bot .
+docker build -t isabi-agentic-bot .
 
 # Run container
-docker run -p 8000:8000 isabi-bot
+docker run -p 8000:8000 --env-file .env isabi-agentic-bot
 ```
-
-### Environment Variables
-Ensure all required environment variables are set:
-- Database credentials
-- API keys
-- WhatsApp tokens
-- Payment credentials
-
-## 📝 Logging
-
-Logs are configured in `Config/logging_config.yaml`:
-- Console output for development
-- File logging for production
-- Error-specific log files
-- Rotating log files
 
 ## 🤝 Contributing
 
 1. Fork the repository
 2. Create a feature branch
 3. Make your changes
-4. Add tests
+4. Add tests for new functionality
 5. Submit a pull request
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## 🆘 Support
 
 For support and questions:
 - Create an issue in the repository
-- Check the troubleshooting guide
-- Review the API documentation
+- Contact the development team
+- Check the documentation
 
 ## 🔄 Version History
 
-- **v2.0.0** - Enhanced Gemini integration, clean architecture
-- **v1.0.0** - Initial release with basic functionality
-
----
-
-**Built with ❤️ for conversational commerce**
+- **v3.0.0**: Agentic AI architecture implementation
+- **v2.0.0**: Enhanced AI integration with GCP Vector Search
+- **v1.0.0**: Initial WhatsApp bot implementation
